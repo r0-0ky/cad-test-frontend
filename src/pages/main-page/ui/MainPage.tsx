@@ -2,7 +2,6 @@
 
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './stylex.module';
-import React from 'react';
 import { ContactButton } from '@/src/shared/ui/contact-button';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';

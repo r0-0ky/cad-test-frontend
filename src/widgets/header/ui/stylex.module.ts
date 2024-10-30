@@ -5,7 +5,7 @@ export const styles = stylex.create({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '35px 70px 35px 30px',
+    padding: '30px 70px 30px 30px',
     borderBottom: '1px solid #d9d9d9',
   },
   logo: {
