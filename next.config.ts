@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+const path = require('path');
+const stylexPlugin = require('@stylexjs/nextjs-plugin');
+const babelrc = require('./.babelrc.js');
+const plugins = babelrc.plugins;
+const [_name, options] = plugins.find(
+  (plugin: any) => Array.isArray(plugin) && plugin[0] === '@stylexjs/babel-plugin',
+);
+const rootDir = options.unstable_moduleResolution.rootDir ?? __dirname;
+const aliases = options.aliases ?? undefined;
+const useCSSLayers = options.useCSSLayers ?? undefined;
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
-
-export default nextConfig;
+module.exports = stylexPlugin({ rootDir, aliases, useCSSLayers })({
+  transpilePackages: ['@stylexjs/open-props'],
+});
