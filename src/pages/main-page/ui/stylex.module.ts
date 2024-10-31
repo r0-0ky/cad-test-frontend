@@ -6,10 +6,18 @@ export const styles = stylex.create({
   },
   infoSection: {
     background: '#f5f5f5',
-    padding: '40px 60px 100px 60px',
+    padding: {
+      default: '20px 20px 30px 20px',
+      '@media (min-width: 400px) and (max-width: 600px)': '20px 30px 60px 30px',
+      '@media (min-width: 600px)': '40px 60px 100px 60px',
+    },
   },
   infoSectionTitle: {
-    fontSize: 50,
+    fontSize: {
+      default: 34,
+      '@media (min-width: 400px) and (max-width: 600px)': 40,
+      '@media (min-width: 600px)': 50,
+    },
     fontWeight: 600,
     margin: 0,
     textAlign: {
@@ -26,7 +34,11 @@ export const styles = stylex.create({
   infoContainer: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 30,
+    gap: {
+      default: 20,
+      '@media (min-width: 400px) and (max-width: 600px)': 20,
+      '@media (min-width: 600px)': 30,
+    },
     maxWidth: 360,
     flex: '0 0 auto',
   },
@@ -49,7 +61,11 @@ export const styles = stylex.create({
       default: 530,
       '@media (max-width: 1000px)': 450,
     },
-    height: 260,
+    height: {
+      default: 150,
+      '@media (min-width: 400px) and (max-width: 600px)': 220,
+      '@media (min-width: 600px)': 260,
+    },
     background: '#d9d9d9',
     width: {
       '@media (max-width: 1000px)': '100%',
@@ -57,7 +73,11 @@ export const styles = stylex.create({
   },
 
   cardsSection: {
-    padding: '60px 60px 40px 60px',
+    padding: {
+      default: '30px 20px 40px 20px',
+      '@media (min-width: 420px) and (max-width: 600px)': '50px 30px 40px 30px',
+      '@media (min-width: 600px)': '60px 60px 40px 60px',
+    },
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -66,9 +86,10 @@ export const styles = stylex.create({
   },
   cardsSectionTitle: {
     fontSize: {
-      default: 45,
-      '@media (max-width: 800px)': 35
-    },
+    default: 29,
+    '@media (min-width: 420px) and (max-width: 600px)': 35,
+    '@media (min-width: 600px)': 45,
+  },
     fontWeight: 600,
     margin: 0,
     textAlign: 'center',
@@ -93,11 +114,20 @@ export const styles = stylex.create({
     gridAutoFlow: 'row',
     justifyContent: 'space-between',
     gridTemplateColumns: {
-      default: 'repeat(3, minmax(0, 270px))',
-      '@media (max-width: 800px)': 'repeat(2, minmax(0, 270px))',
+      default: '1fr',
+      '@media (min-width: 420px) and (max-width: 600px)': 'repeat(2, minmax(0, 270px))',
+      '@media (min-width: 600px)': 'repeat(3, minmax(0, 270px))',
     },
-    gap: 50,
-    margin: '80px 0 50px 0'
+    gap: {
+      default: 24,
+      '@media (min-width: 400px) and (max-width: 600px)': 30,
+      '@media (min-width: 600px)': 50,
+    },  
+    margin: {
+      default: '30px 0',
+      '@media (min-width: 400px) and (max-width: 600px)': '50px 0 40px 0',
+      '@media (min-width: 600px)': '80px 0 50px 0',
+    },
   },
 
   contactSection: {
@@ -105,12 +135,23 @@ export const styles = stylex.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '80px 0',
-    gap: 40
-
+    padding: {
+      default: '40px 0',
+      '@media (min-width: 420px) and (max-width: 600px)': '50px 0',
+      '@media (min-width: 600px)': '80px 0',
+    },
+    gap: {
+      default: 20,
+      '@media (min-width: 420px) and (max-width: 600px)': 30,
+      '@media (min-width: 600px)': 40,
+    }
   },
   contactSectionTitle: {
-    fontSize: 45,
+    fontSize: {
+      default: 29,
+      '@media (min-width: 420px) and (max-width: 600px)': 35,
+      '@media (min-width: 600px)': 45,
+    },
     fontWeight: 600,
     margin: 0,
     textAlign: 'center',

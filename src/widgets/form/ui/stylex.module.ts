@@ -9,8 +9,15 @@ export const styles = stylex.create({
     background: '#fff',
   },
   formButton: {
-    height: 40,
+    height: {
+      default: 35,
+      '@media (min-width: 600px)': 40,
+    },
     boxShadow: 'none',
-    fontSize: 20,
+    fontSize: {
+      default: 16,
+      '@media (min-width: 420px) and (max-width: 600px)': 18,
+      '@media (min-width: 600px)': 20,
+    },
   }
 });

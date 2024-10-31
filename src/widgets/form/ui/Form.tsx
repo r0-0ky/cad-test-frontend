@@ -2,12 +2,25 @@
 
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './stylex.module';
-import { Button, Form, Input, message } from 'antd';
+import { Button, Form, FormProps, Input, message } from 'antd';
+import { FieldType } from './types';
+import { postData } from '@/src/features/post-data/currency';
+import { useContext } from 'react';
+import { FormContext } from '@/src/app/contexts/FormContext';
 
 export const CustomForm: React.FC = () => {
   const [form] = Form.useForm();
-  const onFinish = () => {
-    message.success('Submit success!');
+  const { setIsRequest, setRequestMessage } = useContext(FormContext)
+
+  const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
+    postData(values)
+      .then(data => {
+        setIsRequest(true)
+        setRequestMessage(data);
+      })
+      .catch(() => {
+        console.log('Something went wrong');
+      })
   };
 
   return (

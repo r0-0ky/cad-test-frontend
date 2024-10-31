@@ -12,7 +12,11 @@ export const styles = stylex.create({
   },
   title: {
     textAlign: 'center',
-    fontSize: 70,
+    fontSize: {
+      default: 34,
+      '@media (min-width: 434px) and (max-width: 600px)': 40,
+      '@media (min-width: 600px)': 50,
+    },
     fontWeight: 600,
     margin: '0 0 30px 0'
   },
