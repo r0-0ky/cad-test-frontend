@@ -6,16 +6,22 @@ export const styles = stylex.create({
   },
   infoSection: {
     background: '#f5f5f5',
-    padding: '40px 60px 100px 20px',
+    padding: '40px 60px 100px 60px',
   },
   infoSectionTitle: {
     fontSize: 50,
     fontWeight: 600,
-    margin: 0
+    margin: 0,
+    textAlign: {
+      '@media (max-width: 1000px)': 'center',
+    }
   },
   infoSectionText: {
     fontSize: 16,
     margin: 0,
+    textAlign: {
+      '@media (max-width: 1000px)': 'center',
+    }
   },
   infoContainer: {
     display: 'flex',
@@ -29,12 +35,25 @@ export const styles = stylex.create({
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'space-between',
+    gap: 30,
+    flexDirection: {
+      '@media (max-width: 1000px)': 'column',
+    },
+    alignItems: {
+      '@media (max-width: 1000px)': 'center',
+    }
   },
   video: {
     flex: '1 0 auto',
-    maxWidth: 530,
+    maxWidth: {
+      default: 530,
+      '@media (max-width: 1000px)': 450,
+    },
     height: 260,
-    background: '#d9d9d9'
+    background: '#d9d9d9',
+    width: {
+      '@media (max-width: 1000px)': '100%',
+    }
   },
 
   cardsSection: {
@@ -46,7 +65,10 @@ export const styles = stylex.create({
     margin: '0 auto'
   },
   cardsSectionTitle: {
-    fontSize: 45,
+    fontSize: {
+      default: 45,
+      '@media (max-width: 800px)': 35
+    },
     fontWeight: 600,
     margin: 0,
     textAlign: 'center',
@@ -70,7 +92,10 @@ export const styles = stylex.create({
     display: 'grid',
     gridAutoFlow: 'row',
     justifyContent: 'space-between',
-    gridTemplateColumns: 'repeat(3, minmax(0, 270px))',
+    gridTemplateColumns: {
+      default: 'repeat(3, minmax(0, 270px))',
+      '@media (max-width: 800px)': 'repeat(2, minmax(0, 270px))',
+    },
     gap: 50,
     margin: '80px 0 50px 0'
   },

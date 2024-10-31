@@ -2,9 +2,10 @@
 
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './stylex.module';
-import { ContactButton } from '@/src/shared/ui/contact-button';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
+import { Button } from 'antd';
+import { uiStyles } from '@/src/app/styles/ui/stylex.module';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
 export const MainPage: React.FC = () => {
@@ -42,11 +43,11 @@ export const MainPage: React.FC = () => {
             </article>
           ))}
         </div>
-        <ContactButton value='Contact us' handleClick={handleContactButtonClick}/>
+        <Button {...stylex.props(uiStyles.button)} color='primary' variant='solid' onClick={handleContactButtonClick}>Contact us</Button>
       </section>
       <section {...stylex.props(styles.contactSection)}>
           <h3 {...stylex.props(styles.contactSectionTitle)}>Less important title</h3>
-          <ContactButton value='Contact us' handleClick={handleContactButtonClick}/>
+          <Button {...stylex.props(uiStyles.button)} color='primary' variant='solid' onClick={handleContactButtonClick}>Contact us</Button>
       </section>
     </main>
   );

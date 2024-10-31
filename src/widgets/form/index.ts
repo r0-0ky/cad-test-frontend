@@ -1,1 +1,1 @@
-export { Form } from "./ui/Form";
+export { CustomForm } from "./ui/Form";

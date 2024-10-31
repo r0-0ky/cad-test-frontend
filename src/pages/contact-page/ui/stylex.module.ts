@@ -6,12 +6,17 @@ export const styles = stylex.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    background: '#f5f5f5',
+    minHeight: '100vh'
   },
   title: {
     textAlign: 'center',
     fontSize: 70,
     fontWeight: 600,
-    margin: 0
+    margin: '0 0 30px 0'
+  },
+  wrapper: {
+    padding: '40px 20px'
   }
 });
