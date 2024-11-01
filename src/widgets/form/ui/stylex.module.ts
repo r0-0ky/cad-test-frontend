@@ -19,5 +19,14 @@ export const styles = stylex.create({
       '@media (min-width: 420px) and (max-width: 600px)': 18,
       '@media (min-width: 600px)': 20,
     },
+  },
+  input: {
+    outline: 'none',
+    background: {
+      ':focus': '#f1f1f1'
+    },
+    boxShadow: {
+      ':focus': 'none'
+    }
   }
 });

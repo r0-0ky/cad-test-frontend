@@ -2,15 +2,17 @@
 
 import * as stylex from '@stylexjs/stylex';
 import { styles } from './stylex.module';
-import { Button, Form, FormProps, Input, message } from 'antd';
+import { Button, Form, FormProps, Input } from 'antd';
 import { FieldType } from './types';
 import { postData } from '@/src/features/post-data/currency';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FormContext } from '@/src/app/contexts/FormContext';
 
 export const CustomForm: React.FC = () => {
   const [form] = Form.useForm();
   const { setIsRequest, setRequestMessage } = useContext(FormContext)
+  const [submittable, setSubmittable] = useState(false);
+  const values = Form.useWatch([], form);
 
   const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
     postData(values)
@@ -22,6 +24,13 @@ export const CustomForm: React.FC = () => {
         console.log('Something went wrong');
       })
   };
+
+  useEffect(() => {
+    form
+      .validateFields()
+      .then(() => setSubmittable(true))
+      .catch(() => setSubmittable(false));
+  }, [form, values]);
 
   return (
     <Form
@@ -35,26 +44,26 @@ export const CustomForm: React.FC = () => {
       <Form.Item
         name="name"
         label="Name"
-        rules={[{ required: true }, { type: 'string', warningOnly: true }]}
+        rules={[{ required: true, type: 'string' }]}
       >
-        <Input placeholder="Value" />
+        <Input {...stylex.props(styles.input)} placeholder="Value" />
       </Form.Item>
       <Form.Item
         name="email"
         label="Email"
-        rules={[{ required: true }, { type: 'email', warningOnly: true }]}
+        rules={[{ required: true, type: 'email' }]}
       >
         <Input placeholder="Value" />
       </Form.Item>
       <Form.Item
         name="message"
         label="Message"
-        rules={[{ required: true }, { type: 'string', warningOnly: true }]}
+        rules={[{ required: true, type: 'string'}]}
       >
         <Input.TextArea autoSize={false} placeholder="Value" />
       </Form.Item>
       <Form.Item style={{ margin: 0}}>
-        <Button {...stylex.props(styles.formButton)} type="primary" block htmlType="submit">
+        <Button {...stylex.props(styles.formButton)} type="primary" block htmlType="submit" disabled={!submittable}>
           Submit
         </Button>
       </Form.Item>

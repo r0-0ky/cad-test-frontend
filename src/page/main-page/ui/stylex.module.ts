@@ -56,6 +56,7 @@ export const styles = stylex.create({
     }
   },
   video: {
+    position: 'relative',
     flex: '1 0 auto',
     maxWidth: {
       default: 530,

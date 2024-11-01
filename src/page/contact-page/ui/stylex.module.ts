@@ -22,5 +22,10 @@ export const styles = stylex.create({
   },
   wrapper: {
     padding: '40px 20px'
+  },
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   }
 });

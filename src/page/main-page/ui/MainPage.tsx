@@ -4,7 +4,7 @@ import * as stylex from '@stylexjs/stylex';
 import { styles } from './stylex.module';
 import { useRouter } from 'next/navigation';
 import dynamic from 'next/dynamic';
-import { Button } from 'antd';
+import { Button, Skeleton } from 'antd';
 import { uiStyles } from '@/src/app/styles/ui/stylex.module';
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
@@ -29,7 +29,8 @@ export const MainPage: React.FC = () => {
             <p {...stylex.props(styles.infoSectionText)}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mattis, leo et condimentum ultricies, sem urna convallis metus, vel suscipit nibh lacus tincidunt ante</p>
           </div>
           <div {...stylex.props(styles.video)}>
-            <ReactPlayer width={'100%'} height={'100%'} url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' controls={true} />
+            <Skeleton.Node active style={{ width: '100%', height: '100%', position: 'absolute', top: 0, bottom: 0 }} />
+            <ReactPlayer style={{top: 0, bottom: 0, position: 'absolute'}} width={'100%'} height={'100%'} url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' controls={true} />
           </div>
         </div>
       </section>
