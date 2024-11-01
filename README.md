@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# СAD-TEST-FRONTEND🦄
 
-## Getting Started
+Fronted test app  
+Link - [Click](http://cutletka.ru:2300/)
 
-First, run the development server:
+## Installation
+
+Yarn
 
 ```bash
-npm run dev
-# or
+yarn
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Npm
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm i
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack
 
-## Learn More
+[![next.js](https://img.shields.io/badge/axios-671ddf?&style=for-the-badge&logo=axios&logoColor=white)](https://axios-http.com/ru/)
 
-To learn more about Next.js, take a look at the following resources:
+[![next.js](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![next.js](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[![next.js](https://img.shields.io/badge/Ant%20Design-1890FF?style=for-the-badge&logo=antdesign&logoColor=white)](https://ant.design/)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Styles
+For styles I used [styleX](https://stylexjs.com/) it is a new ccs in js library combining convenience and quickness. 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![stylex example](https://i.ibb.co/V3P1dFB/Screenshot-8.png)
+
+I also added a theme provider for the ui library that globally specified styles for its copmonents.  
+
+```jsx
+import { ConfigProvider } from "antd";
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+
+export const Provider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <AntdRegistry>
+      <ConfigProvider
+        theme={{
+          token: {
+            colorPrimary: '#2c2c2c',
+            fontFamily: 'inherit',
+          },
+        }}
+      >
+        {children}
+      </ConfigProvider>
+    </AntdRegistry>
+  )
+}
+```
